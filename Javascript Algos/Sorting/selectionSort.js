@@ -23,7 +23,13 @@
 //  n−1n−1 passes to sort n items, since the final item must be in place after the (n−1)(n−1) st pass.
 
 
-
+// so the idea of selection sort is that we have a sorted subarray and a non sorted sub array
+//we loop through the array, keeping track of the index (sorted). we use the first value and index as a starting point
+//we then loop through the array again, plus 1 index (unsorted part)
+//as we loop through the unsorted part of the array, we compare the current unsorted value with the starting point value(or where we
+// are in the sorted array). we update the minIndex based on the smallest value
+//once we finish the unsorted iteration, we do a swap with minIndex value and wherever we are in the sorted part of the array.
+//update the index of the sorted and we then keep going
 
 function selectionSort(array){
 
@@ -35,7 +41,7 @@ function selectionSort(array){
 				//keep track of the smallest index of this pass of i
 				currentMinIndex=m;
 			}
-		}
+		}//once we jump out of this iteration, we do any necessary swapping
 
 		//as long as i is not = to the currentMinIndex bc you cannot swap if it's the same. 
 		//this will swap the index we are on as represented as i 

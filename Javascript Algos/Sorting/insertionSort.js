@@ -54,4 +54,23 @@ function insertionSort2(array) {
 
 var arr =[1,4,6,63,7,20,23,2];
 
-console.log(insertionSort(arr))
+// console.log(insertionSort(arr))
+
+
+
+function is(array){
+
+	for(var i = 0; i<array.length; i++){
+		var j = i - 1
+		var temp = array[i]
+
+		while(temp< array[j] && j>=0){
+			array[j+1] = array[j]
+			j--
+		}
+		array[j+1] = temp
+	}
+	return array
+}
+
+console.log(is(arr))

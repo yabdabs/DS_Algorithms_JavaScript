@@ -67,7 +67,7 @@ hashTable.prototype.get = function(key){
 			if(currentNode.key === key){
 				return currentNode.value
 			}
-			currentNode = currentNode.nexts
+			currentNode = currentNode.next
 		}
 		return null;
 	}

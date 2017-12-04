@@ -1,4 +1,4 @@
-function doublyLinkedList(){
+module.exports = function doublyLinkedList(){
 
 	function Node(element){
 		this.element = element
@@ -9,6 +9,23 @@ function doublyLinkedList(){
 	var head = null
 	var tail = null
 	var length = 0
+
+	this.append = function(element){
+	  let node = new Node(element),
+	      current;
+
+	  if (head === null){ //first node on list
+      head = node;
+      tail = node; //NEW
+	  } 
+	  else{
+	    //attach to the tail node //NEW
+	    tail.next = node;
+	    node.prev = tail;
+	    tail = node;
+	  }
+	  length++; //update size of list
+  };	
 
 	//insert a new element at any position
 	this.insert = function(element, position){
@@ -106,5 +123,79 @@ function doublyLinkedList(){
 		}
 	}
 
+	this.remove = function(element){
+    let index = this.indexOf(element);
+    return this.removeAt(index);
+  };
 
+  this.indexOf = function(element){
+	  let current = head,
+      index = -1;
+	  //check first item
+	  if (element == current.element){
+      return 0;
+	  }
+	  index++;
+	  //check in the middle of the list
+	  while(current.next){
+
+	    if (element == current.element){
+	        return index;
+	    }
+	    current = current.next;
+	    index++;
+	  }
+	  //check last item
+	  if (element == current.element){
+      return index;
+	  }
+	  return -1;
+  }
+
+
+  this.isEmpty = function() {
+    return length === 0;
+  }
+
+
+  this. size = function() {
+    return length;
+  }
+
+
+  this.toString = function(){
+	  let current = head,
+      s = current ? current.element : '';
+    while(current && current.next){
+      current = current.next;
+      s += ', ' + current.element;
+    }
+    return s;
+  };
+
+  this.inverseToString = function() {
+    let current = tail,
+      s = current ? current.element : '';
+    while(current && current.prev){
+      current = current.prev;
+      s += ', ' + current.element;
+    }
+    return s;
+  };
+
+  this.print = function(){
+    console.log(this.toString());
+  };
+
+  this.printInverse = function(){
+    console.log(this.inverseToString());
+  };
+
+  this.getHead = function(){
+    return head;
+  };
+
+  this.getTail = function(){
+     return tail;
+  }
 }
