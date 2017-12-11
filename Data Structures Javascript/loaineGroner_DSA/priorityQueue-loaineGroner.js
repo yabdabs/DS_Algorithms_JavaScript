@@ -10,7 +10,7 @@
 function PriorityQueue(){
 	var items = []
 
-	//constructor for queue Element?
+	//constructor for queue Element
 	function QueueElement(element, priority){
 		this.element = element
 		this.priority = priority
@@ -29,6 +29,8 @@ function PriorityQueue(){
 
 			for(var i = 0; i< items.length; i++){
 				if(queueElement.priority < items[i].priority){
+
+					// The splice() method changes the contents of an array by removing existing elements and/or adding new 	elements.
 					// .slice(start, deleteCount, item1)
 					items.splice(i, 0, queueElement)
 					itemAdded = true

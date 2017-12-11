@@ -62,6 +62,8 @@ module.exports = function doublyLinkedList(){
 					previous = current
 					current = current.next
 				}
+
+				//[previous, insert here(node), current]				
 				node.next = current
 				current.prev = node
 				previous.next = node

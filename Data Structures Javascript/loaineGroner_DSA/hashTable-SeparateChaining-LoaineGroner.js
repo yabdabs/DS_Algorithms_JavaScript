@@ -15,8 +15,8 @@
 
 //Sometimes different keys can have the same values when hashed. This is called a collision
 //There are a few techniques to handle collisions:
-// Separate Chaining (covered here)
-// linear probing (covered here)
+// Separate Chaining (covered here). The separate chaining technique consists of creating a linked list for each position of the table and storing the elements in it. It is the simplest technique to handle collisions; however, it requires additional memory outside the HashTable instance
+// linear probing (covered here).Another technique of collision resolution is linear probing. When we try to add a new element, if the position index is already occupied, then we will try index +1. If index +1 is occupied, then we will try index + 2, and so on.
 // double hashing(not covered here)
 var LinkedList = require('./linkedListSingly-loaineGroner.js')
 
