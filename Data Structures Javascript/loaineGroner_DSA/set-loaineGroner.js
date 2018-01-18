@@ -1,4 +1,4 @@
-//A set is a collection of items that are unordered and are not repeated
+	//A set is a collection of items that are unordered and are not repeated
 //we will use an object to represent our set. You can use an array too
 function Set(){
 	var items = {}
@@ -118,7 +118,7 @@ function Set(){
 		}
 		else{
 			for(var i=0; i<values.length; i++){
-				if(this.has(values[i])){
+				if(!otherSet.has(values[i])){
 					count++
 				}
 				else if(!this.has(values[i])){
