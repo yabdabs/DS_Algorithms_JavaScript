@@ -4,6 +4,9 @@
 
 //This algorithm is often compared to how as human we would sort a card game for example.
 
+//as it loops through the array, for each element in the index, it places it in it's correct position 
+//at the time. So it doesn't loop through the entire array to find the smallest one, then place it. It places
+// the element as it comes to it
 
 //ALGORITHM
 // i ← 1
@@ -16,61 +19,85 @@
 //     i ← i + 1
 // end while
 
-function insertionSort(arr){
+// function insertionSort(arr){
 
-	//index that we will start at with each iteration
-	var currentIndex = 1; 
+// 	//index that we will start at with each iteration
+// 	var currentIndex = 1; 
 
-	var comparisonIndex; 
+// 	var comparisonIndex; 
 
-	while(currentIndex < arr.length){
-		comparisonIndex = currentIndex
+// 	while(currentIndex < arr.length){
+// 		comparisonIndex = currentIndex
 
-		while(comparisonIndex >0 && arr[comparisonIndex-1] > arr[comparisonIndex]){
-			var temp = arr[comparisonIndex]
-			arr[comparisonIndex] = arr[comparisonIndex-1]
-			arr[comparisonIndex-1] = temp
+// 		while(comparisonIndex >0 && arr[comparisonIndex-1] > arr[comparisonIndex]){
+// 			var temp = arr[comparisonIndex]
+// 			arr[comparisonIndex] = arr[comparisonIndex-1]
+// 			arr[comparisonIndex-1] = temp
 
-			comparisonIndex = comparisonIndex-1
+// 			comparisonIndex = comparisonIndex-1
+// 		}
+// 		currentIndex++;
+// 	}
+
+// 	return arr
+// }
+
+// function insertionSort2(array) {
+//   for(var i = 0; i < array.length; i++) {
+//     var temp = array[i];
+//     var j = i - 1;
+//     while (j >= 0 && array[j] > temp) {
+//       array[j + 1] = array[j];
+//       j--;
+//     }
+//     array[j + 1] = temp;
+//   }
+//   return array;
+// }
+
+// var arr =[1,4,6,63,7,20,23,2];
+
+// // console.log(insertionSort(arr))
+
+
+
+// function is(array){
+
+// 	for(var i = 0; i<array.length; i++){
+// 		var j = i - 1
+// 		var temp = array[i]
+
+// 		while(temp< array[j] && j>=0){
+// 			array[j+1] = array[j]
+// 			j--
+// 		}
+// 		array[j+1] = temp
+// 	}
+// 	return array
+// }
+
+// console.log(is(arr))
+
+
+
+
+function IS(array){
+	for(var i= 1; i<array.length; i++){
+		var prev = i-1
+		var currentValue = array[i]
+
+		while(array[prev] > currentValue && prev>=0){
+			array[prev + 1] = array[prev]
+			prev --
 		}
-		currentIndex++;
+		array[prev + 1] = currentValue
 	}
 
-	return arr
+	console.log(array)
 }
 
-function insertionSort2(array) {
-  for(var i = 0; i < array.length; i++) {
-    var temp = array[i];
-    var j = i - 1;
-    while (j >= 0 && array[j] > temp) {
-      array[j + 1] = array[j];
-      j--;
-    }
-    array[j + 1] = temp;
-  }
-  return array;
-}
 
-var arr =[1,4,6,63,7,20,23,2];
-
-// console.log(insertionSort(arr))
+// [12(prev), 5(current), 3]
 
 
-
-function is(array){
-
-	for(var i = 0; i<array.length; i++){
-		var j = i - 1
-		var temp = array[i]
-
-		while(temp< array[j] && j>=0){
-			array[j+1] = array[j]
-			j--
-		}
-		array[j+1] = temp
-	}
-	return array
-}
-
-console.log(is(arr))
+IS([1,4,6,63,7,20,23,2])

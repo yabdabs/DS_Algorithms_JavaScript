@@ -6,6 +6,8 @@
 //1) The subarray which is already sorted.
 // 2) Remaining subarray which is unsorted.
 
+//Selection Sort loops through the array and selects the smallest, then places it. Then repeats this
+
 //FACTS
 //in place comparison sorting algo
 // O(n^2) time complexity
@@ -31,31 +33,64 @@
 //once we finish the unsorted iteration, we do a swap with minIndex value and wherever we are in the sorted part of the array.
 //update the index of the sorted and we then keep going
 
-function selectionSort(array){
+// function selectionSort(array){
 
-	for(var i = 0; i< array.length; i++){
+// 	for(var i = 0; i< array.length; i++){
+// 		currentMinIndex = i;
+// 		for(var m = i+1; m<array.length; m++){
+
+// 			if(array[m] < array[currentMinIndex]){
+// 				//keep track of the smallest index of this pass of i
+// 				currentMinIndex=m;
+// 			}
+// 		}//once we jump out of this iteration, we do any necessary swapping
+
+// 		//as long as i is not = to the currentMinIndex bc you cannot swap if it's the same. 
+// 		//this will swap the index we are on as represented as i 
+// 		//with the minimum index found on that pass through the array
+// 		if(i != currentMinIndex){
+// 			temp = array[i]
+// 			array[i] = array[currentMinIndex]
+// 			array[currentMinIndex] = temp;
+// 		}
+// 	}
+
+// 	console.log(array)
+// }
+
+// var testArr = [12,34,18,3,1,7,6,23,4,9]
+
+// selectionSort(testArr)
+
+
+
+function selSort(array){
+	//
+	for(var i=0; i<array.length; i++){
+
 		currentMinIndex = i;
-		for(var m = i+1; m<array.length; m++){
-
-			if(array[m] < array[currentMinIndex]){
-				//keep track of the smallest index of this pass of i
-				currentMinIndex=m;
+		for(var m=i+1; m<array.length; m++){
+			if(array[currentMinIndex] > array[m]){
+				currentMinIndex = m
 			}
-		}//once we jump out of this iteration, we do any necessary swapping
+		}
 
-		//as long as i is not = to the currentMinIndex bc you cannot swap if it's the same. 
-		//this will swap the index we are on as represented as i 
-		//with the minimum index found on that pass through the array
+		//it is possible that currentMinIndex doesn't change bc we can have i can already be less than
+		// the rest of the array
 		if(i != currentMinIndex){
+			//swap the smallest value with what i index we are comparing at
 			temp = array[i]
 			array[i] = array[currentMinIndex]
-			array[currentMinIndex] = temp;
+			array[currentMinIndex] = temp
 		}
 	}
 
 	console.log(array)
 }
 
-var testArr = [12,34,18,3,1,7,6,23,4,9]
 
-selectionSort(testArr)
+var testarr = [4,7,3,23,9,32]
+
+selSort(testarr);
+
+console.log("hello")
